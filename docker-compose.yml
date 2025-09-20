@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # backend:
+  #   build: ./fastapi_app
+  #   container_name: fastapi_backend
+  #   restart: always
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     - db
