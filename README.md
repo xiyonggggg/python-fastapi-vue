@@ -81,7 +81,7 @@ In this task, you will containerize both the backend and frontend, and prepare t
 4. **Extra**
    - Add volume for Postgres to persist data.
    - Add `.env` file to manage environment variables.
-   - Push images to Harbor (request Harbor access with your team lead).
+   - Push images to Harbor.
 
 <br>
 
