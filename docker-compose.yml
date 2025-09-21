@@ -13,12 +13,13 @@ services:
       - "5432:5432"
     volumes:
       - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./postgres/postgres_data:/var/lib/postgresql/data
 
-  # backend:
-  #   build: ./fastapi_app
-  #   container_name: fastapi_backend
-  #   restart: always
-  #   ports:
-  #     - "8000:8000"
-  #   depends_on:
-  #     - db
+  backend:
+    build: ./fastapi_app
+    container_name: fastapi_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
