@@ -11,14 +11,18 @@ In this task, you will extend the FastAPI + PostgreSQL backend to support full C
 2. **Validation Rules**
    - Employee must belong to an existing department.
    - Cannot create employee if `department_id` does not exist or is inactive.
+   - Add unique constraints for department name and employee name.
+   - Add `email` and `phone_no` filed to employee table:
+      - Ensure that each employee’s email address and phone number are unique and follow proper formatting rules.
 
 3. **Proper Error Handling**
     - Example: return `400 bad request` if department not found
 
 4. **Extra**
-   - Add unique constraints for department name and employee name.
-   - Ensure that each employee’s email address and phone number are unique and follow proper formatting rules.
    - Implement **soft delete** for both employees and departments. (Hint: use flag)
+   - Document Upload(.pdf/.txt):
+      - Add a `department_policy` field to department table.
+      - Implement endpoints that allow users to upload and download document.
 
 <br>
 
@@ -26,15 +30,10 @@ In this task, you will extend the FastAPI + PostgreSQL backend to support full C
 In this task, you will build a **Vue.js frontend** to interact with the backend APIs and demonstrate CRUD operations.
 
 ### Requirements
-1. **Setup**
-   - The Vue project named `vue_app` is already created for you.  
-   - If you prefer to start from scratch, feel free to delete the `vue_app` folder and create a new one using `npm create vue@latest`.  
-   - Configure Axios to call the backend REST API.
-
-2. **Views**
+1. **Views**
    - Employee Management Page:
      - List employees in a table.
-     - Create new employee form (with validation for email, phone number).
+     - Create new employee form.
      - Edit employee details.
      - Delete employee.
    - Department Management Page:
@@ -42,17 +41,21 @@ In this task, you will build a **Vue.js frontend** to interact with the backend 
      - Create new department form.
      - Edit department details.
      - Delete department.
+   - `department_policy` Document Management:
+     - Upload a document.
+     - Display document content.
+     - Provide download button for stored documents.
 
-3. **Validation**
+2. **Validation**
    - Ensure frontend validates required fields before sending API requests.
    - Prompt error messages when API calling fails.
 
-4. **UI/UX**
+3. **UI/UX**
    - Use simple form and table layout.
-   - Add buttons for **Create**, **Edit**, **Delete/Deactivate**.
+   - Add buttons for **Create**, **Edit**, **Delete/Deactivate**, **Upload/Download**.
    - Display success/error notifications.
 
-5. **Extra**
+4. **Extra**
    - Add filtering/search on employees (e.g., search by name or department).
    - Add pagination for large lists.
 
@@ -79,7 +82,7 @@ In this task, you will containerize both the backend and frontend, and prepare t
    - Ensure services can talk to each other via internal network.   
 
 4. **Extra**
-   - Add volume for Postgres to persist data.
+   - Add volume for Postgres and FastAPI backend to persist data.
    - Add `.env` file to manage environment variables.
    - Push images to Harbor.
 
