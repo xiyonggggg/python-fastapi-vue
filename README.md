@@ -102,6 +102,7 @@ In this task, you will containerize both the backend and frontend, and prepare t
 - Containerize full app with Docker.
 - Design and manage relational database schemas with PostgreSQL.
 - Work with environment variables for configuration management.
+- Learn how to handle `multipart/form-data` in FastAPI, file storage, and API integration with frontend.
 - Gain experience with dependency management and virtual environments in Python.
 - Learn how to structure a full-stack project with clear separation of concerns.
 - Familiarize with API testing tools (e.g., Postman, curl) for verifying endpoints.
